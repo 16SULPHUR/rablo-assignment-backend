@@ -32,6 +32,20 @@ const updateProduct = async (req, res) => {
   }
 };
 
+
+const getProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+    res.status(200).json({product});
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -74,4 +88,4 @@ const getProductsByRating = async (req, res) => {
   }
 };
 
-module.exports = { addProduct, getAllProducts, updateProduct, deleteProduct, getFeaturedProducts, getProductsByPrice, getProductsByRating };
+module.exports = { addProduct, getAllProducts, updateProduct, deleteProduct, getFeaturedProducts, getProductsByPrice, getProductsByRating, getProduct };
