@@ -61,6 +61,7 @@ const deleteProduct = async (req, res) => {
 
 const getFeaturedProducts = async (req, res) => {
   try {
+    console.log("featured")
     const featuredProducts = await Product.find({ featured: true });
     res.status(200).json(featuredProducts);
   } catch (error) {

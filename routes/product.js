@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/add',authMiddleware, addProduct);
 router.get('/',authMiddleware, getAllProducts);
-router.get('/:id',authMiddleware, getProduct);
+router.get('/single/:id',authMiddleware, getProduct);
 router.put('/:id',authMiddleware, updateProduct);
 router.delete('/:id',authMiddleware, deleteProduct);
 router.get('/featured',authMiddleware, getFeaturedProducts);
