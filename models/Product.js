@@ -16,7 +16,7 @@ const productSchema = new mongoose.Schema({
       message: 'Rating must be between 0 and 5'
     }
   },
-  createdAt: { type: Date, required: true },
+  createdAt: { type: Date, required: true, default: Date() },
   company: { type: String, required: true }
 });
 
